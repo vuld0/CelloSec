@@ -8,11 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center vh-100" style= "background-color: #B8E8FC">
+    <div class="d-flex justify-content-center align-items-center vh-100" style= "background-color: #B8E8FC; ">
     	
     	<form class="shadow w-450 p-3" 
     	      action="php/signup.php" 
-    	      method="post" style= "background-color: white">
+    	      method="post" style= "background-color: white; border-radius: 10px;">
 
     		<h4 class="display-4  fs-1">Create Account</h4><br>
     		<?php if(isset($_GET['error'])){ ?>
@@ -64,9 +64,12 @@
 		           class="form-control"
 		           name="pass">
 		  </div>
-		  
-		  <button type="submit" class="btn btn-primary">Sign Up</button>
-		  <a href="login.php" class="link-secondary">Login</a>
+		  <div style= "display: flex;">
+		    <button type="submit" class="btn btn-primary">Sign Up</button> &nbsp &nbsp
+            <div>
+                <button type="submit" class="btn btn-primary"><a href="login.php" class="link-secondary">Login</a></button>
+            </div>
+        </div>
 		</form>
     </div>
 </body>
