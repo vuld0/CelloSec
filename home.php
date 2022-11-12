@@ -92,11 +92,11 @@ error_reporting(E_ALL);
 					{						
 						echo "<div class='float'>";
 						echo "<center>";
-						echo "<a href='?id=".$row->product_id."'><img class='img-polaroid' src='img/".$row->product_image."' height = '300px' width = '300px'></a>";
+						echo "<a href='payment.php?id=".$row->product_id."'><img class='img-polaroid' src='img/".$row->product_image."' '></a>";
 						echo " ".$row->product_name."";
 						echo "<br />";
 						echo "$ ".$row->product_price."";
-						echo "<p><a href='?id=".$row->product_id."' class='button'>Buy Now</a></p>";
+						echo "<p><a href='payment.php?id=".$row->product_id."' class='button'>Buy Now</a></p>";
 						echo "<br />";
 						echo "</center>";
 						echo "</div>";
