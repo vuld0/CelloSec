@@ -1,31 +1,130 @@
 <?php 
-session_start();
+	
+	session_start();
+	include "db_conn.php";
+	ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
- ?>
+	if (isset($_SESSION['id']) && isset($_SESSION['fname'])) { 
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Cello</title>
+	
+	<link rel="icon" href="img/logo.jpg" />
+	<link rel = "stylesheet" type = "text/css" href="css/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script src="php/jquery-1.7.2.min.js"></script>
+
+	<script src="php/carousel.js"></script>
+
+
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center vh-100">
-    	
-    	<div class="shadow w-450 p-3 text-center">
-            <h3 class="display-4 ">Hello, <?=$_SESSION['fname']?></h3>
-            <a href="logout.php" class="btn btn-warning">
-            	Logout
-            </a>
+	<div id="header">
+		<img src="img/logo.jpg">
+		<label>Cello</label>
+		<ul>
+			<li><a href="logout.php" class="">Logout</a></li>
+			<li><a href="home.php"><i class="icon-home"></i>Home</a></li>
+		</ul>
+	</div>
+			
+	
+	
+
+
+<div id="container">
+
+	<div class="nav">
+	
+			 <ul>
+				<li><a href="#"><i></i>  </a></li>
+				
+			</ul>
+	</div>
+	
+	
+	<div id="carousel">
+		<div id="myCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="active item" style="padding:0; border-bottom:0 solid #111;"><img src="img/i1.jpg" class="carousel"></div>
+				<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/i2.jpg" class="carousel"></div>
+				<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/i3.jpg" class="carousel"></div>
+			</div>
+				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 		</div>
-    </div>
+	</div>
+	
+
+	<div id="video">
+		<video controls autoplay width="445px" height="300px">
+			<source src="video/clothing.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	
+	<div id="content">
+		<div id="product" style="position:relative; margin-top:30%;">
+			<center><h2><legend>Feature Items</legend></h2></center>
+			<br />
+			<script>console.log('PHP: " . $query . "',$query);</script>
+			
+			<?php 
+				//$query = mysqli_query($conn, "") or die (mysqli_error());
+				// $query= "";
+				// $result = mysql_query($conn, $query);
+
+
+				
+				$sth = $conn->prepare("SELECT *FROM `product` WHERE category='feature' ORDER BY product_id DESC");
+
+				$sth->setFetchMode(PDO:: FETCH_OBJ);
+				$sth -> execute();
+				
+				if (true) 
+    			{
+        			// OUTPUT DATA OF EACH ROW
+        			while($row = $sth->fetch())
+					{
+						
+						// $query2 = "SELECT * FROM `product`";
+						// $query1 = mysqli_query($conn, $query2) or die (mysqli_error());
+						
+						echo "<div class='float'>";
+						echo "<center>";
+						echo "<a href='?id=".$row->product_id."'><img class='img-polaroid' src='photo/".$row->product_image."' height = '300px' width = '300px'></a>";
+						echo " ".$row->product_name."";
+						echo "<br />";
+						echo "$ ".$row->product_price."";
+						echo "<p><a href='?id=".$row->product_id."' class='button'>Buy Now</a></p>";
+						echo "<br />";
+						echo "</center>";
+						echo "</div>";
+					}
+				}
+			?>
+		</div>
+	</div>
+
+	<br />
+</div>
+	<br />
+	<div id="footer">
+		<div class="foot">
+			<label style="font-size:17px;"> Copyright &copy; </label>
+			<p style="font-size:25px;">Cello Inc.2022</p>
+		</div>
+	</div>
 </body>
 </html>
 
-<?php }else {
+<?php 
+}else {
 	header("Location: login.php");
 	exit;
-} ?>
+	}
+?>
