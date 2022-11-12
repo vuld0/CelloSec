@@ -50,9 +50,9 @@ error_reporting(E_ALL);
 	<div id="carousel">
 		<div id="myCarousel" class="carousel slide">
 			<div class="carousel-inner">
-				<div class="active item" style="padding:0; border-bottom:0 solid #111;"><img src="img/i1.jpg" class="carousel"></div>
-				<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/i2.jpg" class="carousel"></div>
-				<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/i3.jpg" class="carousel"></div>
+				<div class="active item" style="padding:0; border-bottom:0 solid #111;"><img src="img/banner1.jpg" class="carousel"></div>
+				<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/banner2.jpg" class="carousel"></div>
+				<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/banner3.jpg" class="carousel"></div>
 			</div>
 				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
@@ -62,7 +62,7 @@ error_reporting(E_ALL);
 
 	<div id="video">
 		<video controls autoplay width="445px" height="300px">
-			<source src="video/clothing.mp4" type="video/mp4">
+			<source src="video/clothing2.mp4" type="video/mp4">
 		</video>
 	</div>
 
@@ -74,9 +74,7 @@ error_reporting(E_ALL);
 			<script>console.log('PHP: " . $query . "',$query);</script>
 			
 			<?php 
-				//$query = mysqli_query($conn, "") or die (mysqli_error());
-				// $query= "";
-				// $result = mysql_query($conn, $query);
+				
 
 
 				
@@ -89,14 +87,10 @@ error_reporting(E_ALL);
     			{
         			// OUTPUT DATA OF EACH ROW
         			while($row = $sth->fetch())
-					{
-						
-						// $query2 = "SELECT * FROM `product`";
-						// $query1 = mysqli_query($conn, $query2) or die (mysqli_error());
-						
+					{						
 						echo "<div class='float'>";
 						echo "<center>";
-						echo "<a href='?id=".$row->product_id."'><img class='img-polaroid' src='photo/".$row->product_image."' height = '300px' width = '300px'></a>";
+						echo "<a href='?id=".$row->product_id."'><img class='img-polaroid' src='img/".$row->product_image."' height = '300px' width = '300px'></a>";
 						echo " ".$row->product_name."";
 						echo "<br />";
 						echo "$ ".$row->product_price."";
