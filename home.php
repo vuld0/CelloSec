@@ -26,9 +26,11 @@ error_reporting(E_ALL);
 	<div id="header">
 		<img src="img/logo.jpg">
 		<label>Cello</label>
+		
 		<ul>
 			<li><a href="logout.php" class="">Logout</a></li>
 			<li><a href="home.php"><i class="icon-home"></i>Home</a></li>
+			<li><p class="display-4 ">Hello, <?=$_SESSION['fname']?></p></li>
 		</ul>
 	</div>
 			
