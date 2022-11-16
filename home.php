@@ -109,7 +109,7 @@ error_reporting(E_ALL);
 	<br />
 </div>
 	<br />
-	<div id="footer">
+	<div id="footer" style="position:relative;">
 		<div class="foot">
 			<label style="font-size:17px;"> Copyright &copy; </label>
 			<p style="font-size:25px;">Cello Inc.2022</p>
