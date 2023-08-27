@@ -44,7 +44,7 @@ ini_set('display_errors', 1);
           <p id="Rj">
             Have an account?
             <b
-              ><a href="login.php"><span id="orange">Login</span></a></b
+              ><a href="index.php"><span id="orange">Login</span></a></b
             >
           </p>
           <p id="Dk">For corporate Sign up, <b>Click Here</b></p>
